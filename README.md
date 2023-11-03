@@ -1,25 +1,26 @@
 # 我的餐廳清單
 
-![Index page about Restaurant List](./public/image/M3作業.jpg)
+![Index page about Restaurant List](./public/image/ACC4M1.gif)
 
 ## 介紹
 
-一個屬於你的餐廳清單，不僅可以瀏覽餐廳、查看詳細資訊，還能直接連結到地圖!
+建立一個屬於你的餐廳清單，不僅可以瀏覽餐廳、查看詳細資訊，還能直接連結到地圖!
 
 ### 功能
 
--一頁式查看餐廳
--瀏覽餐廳資訊
--關鍵字搜尋餐廳
--餐廳地址連結google地圖
+- 一頁式查看餐廳
+- 瀏覽餐廳資訊
+- 關鍵字搜尋餐廳
+- 餐廳地址連結google地圖
+- 建立連結資料到後端資料庫
 
 # 如何開始
 
-1.請先安裝 node.js 與 npm
-2.將專案 clone 到本地
+1. 請先安裝 node.js 與 npm
+2. 將專案 clone 到本地
 
    ```
-   git clone https://github.com/Tim2319/ACwork/tree/main/AC%20work
+   git clone https://github.com/Tim2319/restaurantlist.git
    ```
 
 3. 在本地開啟之後，透過終端機進入資料夾，輸入：
@@ -53,3 +54,6 @@
 - Express-Handlebars 7.1.2
 - Bootstrap 5.2.1
 - Font-awesome 5.8.1
+- mysql2 3.2.0
+- sequelize 6.30.0
+- sequelize-cli 6.6.0
