@@ -1,0 +1,118 @@
+<h1 class="mb-1 restaurant-show-title">編輯</h1>
+
+<div class="card h-100 w-50 mx-auto mt-3">
+  <form action="/restaurants/{{Resto.id}}?_method=put" method="post">
+    <div class="card-body row align-items-center">
+
+      <!-- name -->
+      <div class="col-3 my-3">
+        <label for="name">
+          <h5>name</h5>
+        </label>
+      </div>
+      <div class="col-9 my-3">
+        <input type="text" name="name" id="name" value="{{Resto.name}}" class="form-control form-control-lg">
+      </div>
+
+      <!-- name_en -->
+      <div class="col-3 my-3">
+        <label for="name_en">
+          <h5>name_en</h5>
+        </label>
+      </div>
+      <div class="col-9 my-3">
+        <input type="text" name="name_en" id="name_en" value="{{Resto.name_en}}"
+          class="form-control form-control-lg">
+      </div>
+
+      <!-- category -->
+      <div class="col-3 my-3">
+        <label for="category">
+          <h5>category</h5>
+        </label>
+      </div>
+      <div class="col-9 my-3">
+        <input type="text" name="category" id="category" value="{{Resto.category}}"
+          class="form-control form-control-lg">
+      </div>
+
+      <!-- image -->
+      <div class="col-3 my-3">
+        <label for="image">
+          <h5>image</h5>
+        </label>
+      </div>
+      <div class="col-9 my-3">
+        <input type="url" name="image" id="image" value="{{Resto.image}}" class="form-control form-control-lg">
+      </div>
+
+      <!-- location -->
+      <div class="col-3 my-3">
+        <label for="location">
+          <h5>location</h5>
+        </label>
+      </div>
+      <div class="col-9 my-3">
+        <input type="text" name="location" id="location" value="{{Resto.location}}"
+          class="form-control form-control-lg">
+      </div>
+
+      <!-- phone -->
+      <div class="col-3 my-3">
+        <label for="phone">
+          <h5>phone</h5>
+        </label>
+      </div>
+      <div class="col-9 my-3">
+        <input type="text" name="phone" id="phone" value="{{Resto.phone}}"
+          class="form-control form-control-lg">
+      </div>
+
+      <!-- google_map -->
+      <div class="col-3 my-3">
+        <label for="google_map">
+          <h5>google_map</h5>
+        </label>
+      </div>
+      <div class="col-9 my-3">
+        <input type="url" name="google_map" id="google_map" value="{{Resto.google_map}}"
+          class="form-control form-control-lg">
+      </div>
+
+      <!-- rating -->
+      <div class="col-3 my-3">
+        <label for="rating">
+          <h5>rating</h5>
+        </label>
+      </div>
+      <div class="col-9 my-3">
+        <input type="text" name="rating" id="rating" value="{{Resto.rating}}"
+          class="form-control form-control-lg">
+      </div>
+
+      <!-- description -->
+      <div class="col-3 my-3">
+        <label for="description">
+          <h5>description</h5>
+        </label>
+      </div>
+      <div class="col-9 my-3">
+        <input type="text" name="description" id="description" value="{{Resto.description}}"
+          class="form-control form-control-lg">
+      </div>
+      <div class="card-footer text-end ">
+        <button class="btn btn-lg btn-primary">Save</button>
+
+        <button class="btn btn-lg btn-primary">
+          <a href="/restaurants"style="color: aliceblue; text-decoration: none">Back</a>
+        </button>
+          
+            <form action="/restaurants/{{Resto.id}}?_method=delete" method="post" class="text-center">
+              <button class="btn btn-lg btn-danger float-start ">Delete</button>
+            </form>
+            
+      </div>
+  </form>
+         
+</div>
+</div>

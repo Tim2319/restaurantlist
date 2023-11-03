@@ -1,0 +1,112 @@
+<h1 class="mb-1 restaurant-show-title">新增</h1>
+
+<div class="card h-100 w-50 mx-auto mt-3">
+  <form action="/restaurants" method="post">
+    <div class="card-body row align-items-center">
+
+      <!-- name -->
+      <div class="col-3 my-3">
+        <label for="name">
+          <h5>name</h5>
+        </label>
+      </div>
+      <div class="col-9 my-3">
+        <input type="text" name="name" id="name" placeholder="please input name" class="form-control form-control-lg"
+          required>
+      </div>
+
+      <!-- name_en -->
+      <div class="col-3 my-3">
+        <label for="name_en">
+          <h5>name_en</h5>
+        </label>
+      </div>
+      <div class="col-9 my-3">
+        <input type="text" name="name_en" id="name_en" placeholder="please input name_en"
+          class="form-control form-control-lg" required>
+      </div>
+
+      <!-- category -->
+      <div class="col-3 my-3">
+        <label for="category">
+          <h5>category</h5>
+        </label>
+      </div>
+      <div class="col-9 my-3">
+        <input type="text" name="category" id="category" placeholder="please input category"
+          class="form-control form-control-lg" required>
+      </div>
+
+      <!-- image -->
+      <div class="col-3 my-3">
+        <label for="image">
+          <h5>image</h5>
+        </label>
+      </div>
+      <div class="col-9 my-3">
+        <input type="url" name="image" id="image" placeholder="please input image URL"
+          class="form-control form-control-lg" required>
+      </div>
+
+      <!-- location -->
+      <div class="col-3 my-3">
+        <label for="location">
+          <h5>location</h5>
+        </label>
+      </div>
+      <div class="col-9 my-3">
+        <input type="text" name="location" id="location" placeholder="please input location"
+          class="form-control form-control-lg" required>
+      </div>
+
+      <!-- phone -->
+      <div class="col-3 my-3">
+        <label for="phone">
+          <h5>phone</h5>
+        </label>
+      </div>
+      <div class="col-9 my-3">
+        <input type="text" name="phone" id="phone" placeholder="please input phone" class="form-control form-control-lg"
+          required>
+      </div>
+
+      <!-- google_map -->
+      <div class="col-3 my-3">
+        <label for="google_map">
+          <h5>google_map</h5>
+        </label>
+      </div>
+      <div class="col-9 my-3">
+        <input type="url" name="google_map" id="google_map" placeholder="please input google_map URL"
+          class="form-control form-control-lg" required>
+      </div>
+
+      <!-- rating -->
+      <div class="col-3 my-3">
+        <label for="rating">
+          <h5>rating</h5>
+        </label>
+      </div>
+      <div class="col-9 my-3">
+        <input type="text" name="rating" id="rating" placeholder="please input rating"
+          class="form-control form-control-lg" required>
+      </div>
+
+      <!-- description -->
+      <div class="col-3 my-3">
+        <label for="description">
+          <h5>description</h5>
+        </label>
+      </div>
+      <div class="col-9 my-3">
+        <input type="text" name="description" id="description" placeholder="please input description"
+          class="form-control form-control-lg" required>
+      </div>
+      <div class="card-footer text-end ">
+        <button class="btn btn-lg btn-primary">Save</button>
+        <button class="btn btn-lg btn-primary"><a href="/restaurants"
+            style="color: aliceblue; text-decoration: none">Back</a></button>
+      </div>
+  </form>
+</div>
+</div>
