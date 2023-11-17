@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const json = require('../public/jsons/restaurant.json').results;
+const json = require('../public/jsons/restaurant.json').results
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -8,7 +8,7 @@ module.exports = {
     try {
       const restaurants = json.map((restaurant) => ({
         id: restaurant.id,
-        name:restaurant.name,
+        name: restaurant.name,
         name_en: restaurant.name_en,
         category: restaurant.category,
         image: restaurant.image,
@@ -19,15 +19,15 @@ module.exports = {
         description: restaurant.description,
         createdAt: new Date(),
         updatedAt: new Date()
-      }));
-  
-      await queryInterface.bulkInsert('restaurantlists', restaurants, {});
+      }))
+
+      await queryInterface.bulkInsert('restaurantlists', restaurants, {})
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error:', error)
     }
   },
 
   async down (queryInterface, Sequelize) {
     await queryInterface.bulkDelete('restaurantlists', null)
   }
-};
+}

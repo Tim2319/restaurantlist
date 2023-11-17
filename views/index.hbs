@@ -25,6 +25,40 @@
   </div>
 </div>
 
+<!--dropdown button-->
+<form action="/restaurants" method="get" class="position-absolute top-50 end-0" style="padding-right: 6cm;">
+  <div class="container mt-2">
+    <div class="row">
+      <div class="col-12">
+        <div class="d-flex justify-content-end">
+          <div>排列：</div>
+          <div>
+            <select id="dropdown" class="form-select" style="margin-top: -8px;" name="dropdownValue">
+              <option value="A"{{#if A}}selected{{/if}}>A -> Z</option>
+              <option value="Z"{{#if Z}}selected{{/if}}>Z -> A</option>
+              <option value="category" {{#if category}}selected{{/if}}>類別</option>
+              <option value="location"{{#if location}}selected{{/if}}>地區</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<script>
+  const dropdown = document.querySelector('#dropdown')
+  
+  dropdown.addEventListener('change', (event) => {
+    //event.preventDefault()
+    dropdown.form.submit()
+  })
+  
+</script>
+
+
+ 
+
 <!-- restaurant list -->
 <div class="container mt-5 px-md-5">
   <div class="row">

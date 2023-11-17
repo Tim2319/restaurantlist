@@ -1,13 +1,13 @@
-'use strict';
+'use strict'
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up(queryInterface, Sequelize) {
+  async up (queryInterface, Sequelize) {
     await queryInterface.createTable('restaurantlists', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
       name: {
         type: Sequelize.STRING
@@ -19,22 +19,22 @@ module.exports = {
         type: Sequelize.STRING
       },
       image: {
-        type:Sequelize.TEXT
+        type: Sequelize.TEXT
       },
       location: {
-        type:Sequelize.TEXT
+        type: Sequelize.TEXT
       },
       phone: {
-        type:Sequelize.STRING
+        type: Sequelize.STRING
       },
       google_map: {
-        type:Sequelize.TEXT
+        type: Sequelize.TEXT
       },
       rating: {
-        type:Sequelize.STRING
+        type: Sequelize.STRING
       },
       description: {
-        type:Sequelize.TEXT
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
@@ -43,10 +43,10 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
-    });
+      }
+    })
   },
-  async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('restaurantlists');
+  async down (queryInterface, Sequelize) {
+    await queryInterface.dropTable('restaurantlists')
   }
-};
+}
