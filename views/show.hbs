@@ -1,3 +1,5 @@
+{{> message}}
+
 <h1 class="mb-1 restaurant-show-title">{{Resto.name}}</h1>
 <div class="container">
   <div class="row">
@@ -44,7 +46,10 @@
         alt="{{Resto.name}}"
         style="max-width: 600px;"
       />
-      <a type="button" class="btn btn-primary float-end" href="/restaurants">Back</a>
+      <div class="card-footer text-end">
+          <a type="button" class="btn btn-lg btn-primary"  href="/restaurants/{{Resto.id}}/edit" method="get">Edit</a>
+          <a type="button" class="btn btn-lg btn-primary"  href="/restaurants">Back</a>
+      </div>
     </div>
   </div>
 </div>

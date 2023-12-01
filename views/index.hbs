@@ -1,3 +1,5 @@
+{{> message}}
+
 <!-- search bar -->
 <div class="container search-bar">
   <div class="search-bar-outer">
@@ -34,6 +36,7 @@
           <div>排列：</div>
           <div>
             <select id="dropdown" class="form-select" style="margin-top: -8px;" name="dropdownValue">
+              <option {{#if none}}selected{{/if}}>無排序</option>
               <option value="A"{{#if A}}selected{{/if}}>A -> Z</option>
               <option value="Z"{{#if Z}}selected{{/if}}>Z -> A</option>
               <option value="category" {{#if category}}selected{{/if}}>類別</option>
@@ -100,4 +103,41 @@
     </div>
     {{/each}}
   </div>
+</div>
+
+<!-- pagination -->
+<div class="d-flex justify-content-center">
+  <nav aria-label="Page navigation">
+    <ul class="pagination">
+      {{#if hasPrepage}}
+      <li class="page-item">
+        <form action="/restaurants" method="GET" style="display: inline;">
+          <input type="hidden" name="page" value="{{Previous}}">
+          <button type="submit" class="page-link">Previous</button>
+        </form>
+        {{else}}
+        <form action="/restaurants" method="GET" style="display: inline;">
+          <input type="hidden" name="page" value="{{Previous}}">
+          <button type="submit" class="page-link" disabled>Previous</button>
+        </form>
+      </li>
+      {{/if}}
+      <li class="page-item"><a class="page-link" >{{page}}</a></li>
+      {{#if hasNextPage}}
+      <li class="page-item">
+        <form action="/restaurants" method="GET" style="display: inline;">
+          <input type="hidden" name="page" value="{{Next}}">
+          <button type="submit" class="page-link">Next</button>
+        </form>
+        {{else}}
+        <form action="/restaurants" method="GET" style="display: inline;">
+          <input type="hidden" name="page" value="{{Next}}">
+          <button type="submit" class="page-link" disabled>Next</button>
+        </form>
+      </li>
+      {{/if}}
+    </ul>
+  </nav>
+
+
 </div>

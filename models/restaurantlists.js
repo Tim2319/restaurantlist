@@ -30,22 +30,22 @@ module.exports = (sequelize, DataTypes) => {
       category: {
         type: DataTypes.STRING
       },
-	  image: {
+      image: {
         type: DataTypes.TEXT
       },
-	  location: {
+      location: {
         type: DataTypes.TEXT
       },
-	  phone: {
+      phone: {
         type: DataTypes.STRING
       },
-	  google_map: {
+      google_map: {
         type: DataTypes.TEXT
       },
-	  rating: {
+      rating: {
         type: DataTypes.FLOAT.UNSIGNED
       },
-	  description: {
+      description: {
         type: DataTypes.TEXT
       }
     }, {

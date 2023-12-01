@@ -1,3 +1,5 @@
+{{> message}}
+
 <h1 class="mb-1 restaurant-show-title">新增</h1>
 
 <div class="card h-100 w-50 mx-auto mt-3">
@@ -102,8 +104,10 @@
         <input type="text" name="description" id="description" placeholder="please input description"
           class="form-control form-control-lg" required>
       </div>
+      <!-- buttons -->
       <div class="card-footer text-end ">
-        <button class="btn btn-lg btn-primary">Save</button>
+        <button class="btn btn-lg btn-primary"><a href="/restaurants"
+            style="color: aliceblue; text-decoration: none">Save</button>
         <button class="btn btn-lg btn-primary"><a href="/restaurants"
             style="color: aliceblue; text-decoration: none">Back</a></button>
       </div>
