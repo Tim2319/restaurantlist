@@ -3,17 +3,12 @@ const {
   Model
 } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
-  class restaurantlists extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+  class restaurantlist extends Model {
     static associate (models) {
       // define association here
     }
   }
-  restaurantlists.init(
+  restaurantlist.init(
     {
       id: {
         allowNull: false,
@@ -50,7 +45,8 @@ module.exports = (sequelize, DataTypes) => {
       }
     }, {
       sequelize,
-      modelName: 'restaurantlists'
+      modelName: 'restaurantlist',
+      tableName: 'restaurantlists'
     })
-  return restaurantlists
+  return restaurantlist
 }

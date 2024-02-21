@@ -1,0 +1,80 @@
+{{>message}}
+<header>
+  <!-- navigation -->
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="">
+        <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png"
+          width="30" height="30" class="d-inline-block align-top" alt="我的餐廳清單">
+        我的餐廳清單
+      </a>
+  </nav>
+  <div class="banner"></div>
+
+  <div class="card h-100 w-50 mx-auto mt-3">
+    <div class="text-center mt-3">
+      <h1>註冊</h1>
+    </div>
+    <form action="/users" method="post">
+      <div class="card-body row align-items-center">
+
+        <!-- Name -->
+        <div class="col-3 my-3">
+          <label for="name">
+            <h5>Name</h5>
+          </label>
+        </div>
+        <div class="col-9 my-3">
+          <input type="text" name="name" placeholder="please input name" class="form-control form-control-lg" required>
+        </div>
+
+        <!-- Email -->
+        <div class="col-3 my-3">
+          <label for="email">
+            <h5>Email</h5>
+          </label>
+        </div>
+        <div class="col-9 my-3">
+          <input type="email" name="email" placeholder="please input email" class="form-control form-control-lg"
+            required>
+        </div>
+
+        <!-- password -->
+        <div class="col-3 my-3">
+          <label for="password">
+            <h5>Password</h5>
+          </label>
+        </div>
+        <div class="col-9 my-3">
+          <input type="text" name="password" placeholder="please input password" class="form-control form-control-lg"
+            required>
+        </div>
+        <!-- confirm_password -->
+        <div class="col-3 my-3">
+          <label for="confirm_password">
+            <h5>Confirm_password</h5>
+          </label>
+        </div>
+        <div class="col-9 my-3">
+          <input type="text" name="confirm_passowrd" placeholder="please input confirm_password"
+            class="form-control form-control-lg" required>
+        </div>
+        <div class="text-center mt-3">
+          <button class="btn btn-lg btn-primary" style="width: 300px;">Register</button>
+        </div>
+    </form>
+
+    <div class="text-center mt-3">
+      <form action="/oauth2_fb/login/facebook" method="GET">
+        <button  class="btn btn-lg btn-primary" style="width: 300px;">
+          <i class="fab fa-facebook-f"></i> Facebook登入
+        </button>
+      </form>
+    </div>
+
+  </div>
+
+</header>
+<div class="text-center">
+  <p>Already have an account? <a href="/login">Login</a></p>
+</div>

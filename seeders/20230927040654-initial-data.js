@@ -6,7 +6,7 @@ const json = require('../public/jsons/restaurant.json').results
 module.exports = {
   async up (queryInterface, Sequelize) {
     try {
-      const restaurants = json.map((restaurant) => ({
+      const restaurants = json.map(restaurant => ({
         id: restaurant.id,
         name: restaurant.name,
         name_en: restaurant.name_en,

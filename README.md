@@ -29,13 +29,26 @@
    npm install
    ```
 
-4. 安裝完畢後，繼續輸入：
+4. 安裝完成後，可依下列指令建立資料庫、建立資料表、導入預設資料：
+
+   ```
+   npx sequelize db:create
+   ```
+   ```
+   npx sequelize db:migrate
+   ```
+   ```
+   npx sequelize db:seed:all
+   ```
+
+
+5. 安裝完畢後，繼續輸入：
 
    ```
    npm run start
    ```
 
-5. 若看見此行訊息則代表順利運行，打開瀏覽器進入到以下網址
+6. 若看見此行訊息則代表順利運行，打開瀏覽器進入到以下網址
 
    ```
    Listening on http://localhost:3000

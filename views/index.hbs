@@ -1,7 +1,8 @@
+
 {{> message}}
 
 <!-- search bar -->
-<div class="container search-bar">
+<div class="container search-bar h-auto">
   <div class="search-bar-outer">
     <div class="search-bar-inner">
       <form action="/restaurants">
@@ -18,7 +19,7 @@
             <button class="btn btn-major"
                     type="submit"
                     id="search-button">
-              <i class="fas fa-search"></i>
+              <i class="fas fa-search"></i>search
             </button>
           </div>
         </div>
@@ -65,7 +66,7 @@
 <!-- restaurant list -->
 <div class="container mt-5 px-md-5">
   <div class="row">
-    {{#each Resto}}
+    {{#each Resto as |Resto|}}
     <div class="col-12 col-sm-6 col-md-4">
       <a href="/restaurants/{{this.id}}"
         class="text-secondary">
@@ -87,15 +88,15 @@
             </span>
           </div>
           <div class="card-footer d-flex justify-content-end">
-            <form action="/restaurants/{{this.id}}/edit" method="get">
+            <form action="/restaurants/{{Resto.id}}/edit" method="get">
               <button class="btn btn-primary">Edit</button>
             </form>
 
-            <form action="restaurants/{{this.id}}" method="get" class="mx-1">
+            <form action="restaurants/{{Resto.id}}" method="get" class="mx-1">
               <button class="btn btn-primary">Detail</button>
             </form>
-            <form action="/restaurants/{{this.id}}?_method=delete" method="post">
-              <button class="btn btn-danger ">Delete</button>
+            <form id="deleteForm" method="post">
+              <button type="button" class="btn btn-danger" onclick="confirmDelete({{Resto.id}})">Delete</button>
             </form>
           </div>
         </div>
@@ -104,6 +105,17 @@
     {{/each}}
   </div>
 </div>
+
+<script>
+function confirmDelete(id) {
+  const result = confirm("確定要刪除嗎？")
+  if (result) {
+    const form = document.getElementById("deleteForm")
+    form.action = `/restaurants/${id}?_method=delete` 
+    form.submit()
+  } 
+}
+</script>
 
 <!-- pagination -->
 <div class="d-flex justify-content-center">
@@ -141,3 +153,4 @@
 
 
 </div>
+

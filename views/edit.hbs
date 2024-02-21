@@ -2,7 +2,7 @@
 
 <h1 class="mb-1 restaurant-show-title">編輯</h1>
 
-<div class="card h-100 w-50 mx-auto mt-3">
+<div class="card h-auto w-50 mx-auto mt-3">
   <form action="/restaurants/{{Resto.id}}?_method=put" method="post">
     <div class="card-body row align-items-center">
 
@@ -98,20 +98,23 @@
           <h5>description</h5>
         </label>
       </div>
-      <div class="col-9 my-3">
-        <input type="text" name="description" id="description" value="{{Resto.description}}"
-          class="form-control form-control-lg">
+      <div class="col-9 my-2">
+        <textarea type="text" name="description" id="description" value=""
+          class="form-control form-control-lg" style="resize:none">{{Resto.description}}</textarea>
       </div>
-      <div class="card-footer text-end ">
-        <button class="btn btn-lg btn-primary">Save</button>
 
-        <button class="btn btn-lg btn-primary">
-          <a href="/restaurants"style="color: aliceblue; text-decoration: none">Back</a>
+      <!--buttons-->
+      <div class="card-footer text-end ">
+        <button class="btn btn-lg btn-primary" type="submit">Save</button>
+        <button type="reset" class="btn btn-lg btn-danger">Reset</button>
+        <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='/'" 
+          style="color: aliceblue; text-decoration: none">
+          Back
         </button>
           
-            <form action="/restaurants/{{Resto.id}}?_method=delete" method="post" class="text-center">
-              <button class="btn btn-lg btn-danger float-start ">Delete</button>
-            </form>
+        <form action="/restaurants/{{Resto.id}}?_method=delete" method="post" class="text-center">
+          <button type="button" class="btn btn-lg btn-danger float-start" onclick="confirmDelete({{restaurant.id}})">Delete</button>
+        </form>
             
       </div>
   </form>

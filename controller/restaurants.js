@@ -142,7 +142,7 @@ router.put('/:id', (req, res, next) => {
 
 router.delete('/:id', (req, res, next) => {
   const id = req.params.id
-  Resto.destroy({ where: { id } })
+  return Resto.destroy({ where: { id } })
     .then(() => {
       req.flash('success', '刪除成功')
       res.redirect('/restaurants')
