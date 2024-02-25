@@ -1,6 +1,6 @@
 {{> message}}
 
-<h1 class="mb-1 restaurant-show-title">{{Resto.name}}</h1>
+<h1 class="mb-1 restaurant-show-title">{{restaurant.name}}</h1>
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-10 mx-auto">
@@ -10,7 +10,7 @@
           <i class="fas fa-utensils pr-2"></i>
           類別：
         </span>
-        {{Resto.category}}
+        {{restaurant.category}}
       </p>
 
       <p class="mb-1">
@@ -18,9 +18,9 @@
           <i class="fas fa-map-marker-alt pr-2"></i>
           地址：
         </span>
-        {{Resto.location}}
+        {{restaurant.location}}
         <a
-          href="{{Resto.google_map}}"
+          href="{{restaurant.google_map}}"
           class="text-secondary"
           target="_blank"
         >
@@ -33,21 +33,21 @@
           <i class="fas fa-mobile-alt pr-2"></i>
           電話：
         </span>
-        {{Resto.phone}}
+        {{restaurant.phone}}
       </p>
 
       <p class="mb-5">
-        {{Resto.description}}
+        {{restaurant.description}}
       </p>
 
       <img
         class="rounded mx-auto d-block mb-4 w-100"
-        src="{{Resto.image}}"
-        alt="{{Resto.name}}"
+        src="{{restaurant.image}}"
+        alt="{{restaurant.name}}"
         style="max-width: 600px;"
       />
       <div class="card-footer text-end">
-          <a type="button" class="btn btn-lg btn-primary"  href="/restaurants/{{Resto.id}}/edit" method="get">Edit</a>
+          <a type="button" class="btn btn-lg btn-primary"  href="/restaurants/{{restaurant.id}}/edit" method="get">Edit</a>
           <a type="button" class="btn btn-lg btn-primary"  href="/restaurants">Back</a>
       </div>
     </div>

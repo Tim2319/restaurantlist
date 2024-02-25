@@ -1,9 +1,6 @@
-<header>
-{{>navbar}}
-
-  <div class="card h-100 w-50 mx-auto mt-3">
+ <div class="card h-auto w-50 mx-auto mt-3 mb-5">
     <div class="text-center mt-3"><h1>登入</h1></div>
-    <form action="/login" method="post">
+    <form action="/users/login" method="post">
       <div class="card-body row align-items-center">
   
         <!-- email -->
@@ -13,8 +10,7 @@
           </label>
         </div>
         <div class="col-9 my-3">
-          <input type="email" name="email" placeholder="please input email" class="form-control form-control-lg"
-            required>
+          <input type="email" name="email" placeholder="please input email" class="form-control form-control-lg" required>
         </div>
   
         <!-- password -->
@@ -24,12 +20,11 @@
           </label>
         </div>
         <div class="col-9 my-3">
-          <input type="text" name="password"  placeholder="please input password"
-            class="form-control form-control-lg" required>
+          <input type="password" name="password"  placeholder="please input password" class="form-control form-control-lg" required>
         </div>
 
         <div class="text-center mt-3">
-          <button class="btn btn-lg btn-primary" style="width: 300px;">login</button>
+          <button class="btn btn-lg btn-primary" style="width: 300px;">登入</button>
         </div>
     </form>
         <div class="text-center mt-3">
@@ -42,7 +37,7 @@
 
   </div>
   
-</header>
+
 <div class="text-center">
-<p>No account? <a href="/register">Register</a></p>
+<p>No account? <a href="/users/register" >註冊</a></p>
 </div>

@@ -1,6 +1,4 @@
-
 {{> message}}
-
 <!-- search bar -->
 <div class="container search-bar h-auto">
   <div class="search-bar-outer">
@@ -66,7 +64,7 @@
 <!-- restaurant list -->
 <div class="container mt-5 px-md-5">
   <div class="row">
-    {{#each Resto as |Resto|}}
+    {{#each restaurant as |restaurant|}}
     <div class="col-12 col-sm-6 col-md-4">
       <a href="/restaurants/{{this.id}}"
         class="text-secondary">
@@ -88,15 +86,15 @@
             </span>
           </div>
           <div class="card-footer d-flex justify-content-end">
-            <form action="/restaurants/{{Resto.id}}/edit" method="get">
+            <form action="/restaurants/{{restaurant.id}}/edit" method="get">
               <button class="btn btn-primary">Edit</button>
             </form>
 
-            <form action="restaurants/{{Resto.id}}" method="get" class="mx-1">
+            <form action="restaurants/{{restaurant.id}}" method="get" class="mx-1">
               <button class="btn btn-primary">Detail</button>
             </form>
             <form id="deleteForm" method="post">
-              <button type="button" class="btn btn-danger" onclick="confirmDelete({{Resto.id}})">Delete</button>
+              <button type="button" class="btn btn-danger" onclick="confirmDelete({{restaurant.id}})">Delete</button>
             </form>
           </div>
         </div>

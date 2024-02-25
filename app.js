@@ -5,6 +5,7 @@ const port = 3000
 
 const flash = require('connect-flash')
 const session = require('express-session')
+const passport = require('./config/passport')
 
 const router = require('./routes')
 const methodOverride = require('method-override')
@@ -19,11 +20,9 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method')) // ''內可以隨意指定 辨別使用methodOverride的方式
 
-app.use(session({
-  secret: 'ThisIsSecret',
-  resave: false,
-  saveUninitialized: false
-}))
+app.use(session({ secret: 'ThisIsSecret', resave: false, saveUninitialized: false }))
+app.use(passport.initialize())
+app.use(passport.session())
 app.use(flash())
 
 app.use(messageHandler)

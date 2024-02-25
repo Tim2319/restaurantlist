@@ -3,12 +3,12 @@ const {
   Model
 } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
-  class restaurantlist extends Model {
+  class restaurant extends Model {
     static associate (models) {
       // define association here
     }
   }
-  restaurantlist.init(
+  restaurant.init(
     {
       id: {
         allowNull: false,
@@ -45,8 +45,8 @@ module.exports = (sequelize, DataTypes) => {
       }
     }, {
       sequelize,
-      modelName: 'restaurantlist',
-      tableName: 'restaurantlists'
+      modelName: 'restaurant',
+      tableName: 'restaurants'
     })
-  return restaurantlist
+  return restaurant
 }

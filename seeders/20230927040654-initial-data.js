@@ -21,13 +21,13 @@ module.exports = {
         updatedAt: new Date()
       }))
 
-      await queryInterface.bulkInsert('restaurantlists', restaurants, {})
+      await queryInterface.bulkInsert('restaurants', restaurants, {})
     } catch (error) {
       console.error('Error:', error)
     }
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('restaurantlists', null)
+    await queryInterface.bulkDelete('restaurants', null)
   }
 }
