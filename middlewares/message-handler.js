@@ -1,6 +1,7 @@
-module.exports = (req, res, next) => {
-  res.locals.success_msg = req.flash('success')
-  res.locals.error_msg = req.flash('error')
+const getUser = req => {
+  return req.user || null
+}
 
-  next()
+module.exports = {
+  getUser
 }

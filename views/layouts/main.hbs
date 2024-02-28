@@ -8,11 +8,10 @@
     <link rel="stylesheet" href="/stylesheet/global.css" />
     <title>Restaurant List</title>
   </head>
-
-  <body>
-    <header>
+  <header>
       <!-- navigation -->
       <nav class="navbar navbar-light bg-light">
+       {{#if user}}
         <div class="container">
           <a class="navbar-brand" href="/">
             <img
@@ -24,19 +23,18 @@
             />
             我的餐廳清單
           </a>
+          
           <div class="d-flex flex-row gap-3">
           <a role="button" class="btn btn-primary" href="/restaurants/new">+新增餐廳+</a>
-          {{#if users}}
-          <a role="button" class="btn btn-danger" href="/users/logout">登出</a>
-          {{else}}
-          <a role="button" class="btn btn-secondary" href="/users/login">登入</a>
-          {{/if}}
+          <a role="button" class="btn btn-danger" href="/logout">登出</a>
           </div>
         </div>
+        {{/if}}
       </nav>
-
       <div class="banner"></div>
     </header>
+  <body>
+    
     {{{body}}}
 
     <script src="/javascript/bootstrap.bundle.min.js"></script>

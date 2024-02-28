@@ -2,8 +2,7 @@ const passport = require('passport')
 const LocalStrategy = require('passport-local')
 
 const bcrypt = require('bcryptjs')
-const db = require('../models')
-const User = db.User
+const { User } = require('../models')
 
 passport.use(new LocalStrategy(
   // customize user field
@@ -31,7 +30,7 @@ passport.serializeUser((user, cb) => {
 
 passport.deserializeUser((id, cb) => {
   User.findByPk(id).then(user => {
-    console.log(user) // 暫時添加
+    user = user.toJSON()
     return cb(null, user)
   })
 })
