@@ -33,9 +33,10 @@ const restaurantController = {
           orderOpition = [['location', 'ASC']]
           break
       }
-
+      const userId = req.user.id
       return restaurant.findAll({
         attributes: ['id', 'name', 'name_en', 'category', 'image', 'location', 'phone', 'google_map', 'rating', 'description'],
+        where: { userId },
         offset: (page - 1) * 9,
         limit: 9,
         order: orderOpition,
@@ -83,8 +84,8 @@ const restaurantController = {
   },
   postRestaurant: (req, res, next) => {
     const data = req.body
-    console.log(data)
-    return restaurant.create(data)
+    const userId = req.user.id
+    return restaurant.create({ ...data, userId })
 
       .then(() => {
         req.flash('success', '新增成功!')
@@ -98,8 +99,9 @@ const restaurantController = {
   },
   getRestaurant: (req, res) => {
     const id = req.params.id
+    const userId = req.user.id
     restaurant.findByPk(id, {
-      attributes: ['id', 'name', 'name_en', 'category', 'image', 'location', 'phone', 'google_map', 'rating', 'description'],
+      attributes: ['id', 'name', 'name_en', 'category', 'image', 'location', 'phone', 'google_map', 'rating', 'description', 'userId'],
       raw: true
     })
       .then(restaurant => {
@@ -107,17 +109,25 @@ const restaurantController = {
           req.flash('error', '找不到資料')
           return res.redirect('/restaurants')
         }
+        if (restaurant.userId !== userId) {
+          req.flash('error', '權限不足')
+          return res.redirect('/restaurants')
+        }
         res.render('show', { restaurant })
       })
   },
-  editRestaurant: (req, res) => {
+  editRestaurant: (req, res, next) => {
     const id = req.params.id
     restaurant.findByPk(id, {
-      attributes: ['id', 'name', 'name_en', 'category', 'image', 'location', 'phone', 'google_map', 'rating', 'description'],
+      attributes: ['id', 'name', 'name_en', 'category', 'image', 'location', 'phone', 'google_map', 'rating', 'description', 'userId'],
       raw: true
     })
 
       .then(restaurant => res.render('edit', { restaurant }))
+      .catch(error => {
+        req.flash('error', '權限不足')
+        next(error)
+      })
   },
   putRestaurant: (req, res, next) => {
     const id = req.params.id
@@ -132,14 +142,31 @@ const restaurantController = {
         next(error)
       })
   },
-  deleteRestaurant: (req, res, next) => {
-    const id = req.params.id
-    restaurant.destroy({ where: { id } })
-      .then(() => {
-        req.flash('success', '刪除成功')
-        res.redirect('/restaurants')
+  deleteRestaurant: async (req, res, next) => {
+    try {
+      const id = req.params.id
+      const userId = req.user.id
+      restaurant.findByPk(id, {
+        attributes: ['id', 'name', 'name_en', 'category', 'image', 'location', 'phone', 'google_map', 'rating', 'description', 'userId']
       })
-      .catch(error => next(error))
+        .then(restaurant => {
+          if (!restaurant) {
+            req.flash('error', '找不到資料')
+            return res.redirect('/restaurants')
+          }
+          if (restaurant.userId !== userId) {
+            req.flash('error', '權限不足')
+            return res.redirect('/restaurants')
+          }
+        })
+      restaurant.destroy({ where: { id } })
+        .then(() => {
+          req.flash('success', '刪除成功')
+          res.redirect('/restaurants')
+        })
+    } catch (error) {
+      next(error)
+    }
   }
 }
 module.exports = restaurantController

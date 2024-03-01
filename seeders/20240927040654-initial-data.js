@@ -2,6 +2,10 @@
 
 const json = require('../public/jsons/restaurant.json').results
 
+json.forEach(data => {
+  if (data.id <= 3) data.userId = 1
+  else if (data.id <= 6) data.userId = 2
+})
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
@@ -17,13 +21,14 @@ module.exports = {
         google_map: restaurant.google_map,
         rating: restaurant.rating,
         description: restaurant.description,
+        userId: restaurant.userId,
         createdAt: new Date(),
         updatedAt: new Date()
       }))
 
-      await queryInterface.bulkInsert('restaurants', restaurants, {})
+      await queryInterface.bulkInsert('restaurants', restaurants)
     } catch (error) {
-      console.error('Error:', error)
+      console.error('Error', error)
     }
   },
 

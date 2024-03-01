@@ -3,6 +3,6 @@ module.exports = (req, res, next) => {
     return next()
   }
 
-  req.flash('error', '尚未登入')
+  req.flash('success', '請在此登入')
   return res.redirect('/login')
 }
